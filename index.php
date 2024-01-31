@@ -3,34 +3,63 @@
 class Prodotto
 {
     //Property
-    public $cane;
-    public $gatto;
-    public $uccelli;
-    public $pesci;
+    public $prezzo;
+    public $img;
+    public $nome;
+    public $categoria;
 
-    function __construct($_cane, $_gatto, $_uccelli, $_pesci)
+    function __construct($_prezzo, $_img, $_nome, $_categoria)
     {
-        $this->cane = $_cane;
-        $this->gatto = $_gatto;
-        $this->uccelli = $_uccelli;
-        $this->pesci = $_pesci;
+        $this->prezzo = $_prezzo;
+        $this->img = $_img;
+        $this->nome = $_nome;
+        $this->categoria = $_categoria;
+    }
+
+    function getPrezzo()
+    {
+        return $this->prezzo;
+    }
+
+    function getImg()
+    {
+        return $this->img;
+    }
+
+    function getNome()
+    {
+        return $this->nome;
+    }
+
+    function getCategoria()
+    {
+        return $this->categoria;
     }
 }
 
 class cibo extends prodotto
 {
     //Property
-    public $croccantini;
-    public $scatola;
-    public $mangime;
+    public $scadenza;
+    public $peso;
 
-    function __construct($_cane, $_gatto, $_uccelli, $_pesci, $_croccantini, $_scatola, $_mangime)
+
+    function __construct($_prezzo, $_img, $_nome, $_categoria, $_scadenza, $_peso)
     {
-        parent::__construct($_cane, $_gatto, $_uccelli, $_pesci);
+        parent::__construct($_prezzo, $_img, $_nome, $_categoria);
 
-        $this->croccantini = $_croccantini;
-        $this->scatola = $_scatola;
-        $this->mangime = $_mangime;
+        $this->scadenza = $_scadenza;
+        $this->peso = $_peso;
+    }
+
+    function getScadenza()
+    {
+        return $this->scadenza;
+    }
+
+    function getPeso()
+    {
+        return $this->peso;
     }
 }
 
@@ -38,34 +67,70 @@ class cibo extends prodotto
 class accessorio extends prodotto
 {
     //Property
-    public $voliera;
-    public $filtro;
+    public $materiale;
+    public $larghezza;
 
 
-    function __construct($_cane, $_gatto, $_uccelli, $_pesci, $_voliera, $_filtro)
+    function __construct($_prezzo, $_img, $_nome, $_categoria, $_materiale, $_larghezza)
     {
-        parent::__construct($_cane, $_gatto, $_uccelli, $_pesci);
+        parent::__construct($_prezzo, $_img, $_nome, $_categoria);
 
-        $this->voliera = $_voliera;
-        $this->filtro = $_filtro;
+        $this->materiale = $_materiale;
+        $this->larghezza = $_larghezza;
+    }
+
+    function getMateriale()
+    {
+        return $this->materiale;
+    }
+
+    function getLarghezza()
+    {
+        return $this->larghezza;
     }
 }
 
 class gioco extends prodotto
 {
     //Property
-    public $mouse;
-    public $kong;
+    public $colore;
+    public $riciclato;
 
 
-    function __construct($_cane, $_gatto, $_uccelli, $_pesci, $_mouse, $_kong)
+    function __construct($_prezzo, $_img, $_nome, $_categoria, $_colore, $_riciclato)
     {
-        parent::__construct($_cane, $_gatto, $_uccelli, $_pesci);
+        parent::__construct($_prezzo, $_img, $_nome, $_categoria);
 
-        $this->mouse = $_mouse;
-        $this->kong = $_kong;
+        $this->colore = $_colore;
+        $this->riciclato = $_riciclato;
+    }
+    function getColore()
+    {
+        return $this->colore;
+    }
+
+    function getRiciclato()
+    {
+
+        if ($this->riciclato) {
+            return "Il materiale di questo prodotto è riciclato";
+        } else {
+            return "Il materiale di questo prodotto non è riciclato";
+        }
     }
 }
+
+
+$royal = new cibo('Prezzo ' . 12.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/284621/Mini-Adult.jpg?v=638182891693570000', 'RoyalCanin Mini', 'Cani', 23 . '/' . 03 . '/' . 2024, '10kg');
+$almoC = new cibo('Prezzo ' . 16.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg', 'Almo Natural', 'Cani', 21 . '/' . 04 . '/' . 2024, '12kg');
+$almoG = new cibo('Prezzo ' . 7.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg', 'Almo Natural', 'Gatti', 16 . '/' . 02 . '/' . 2024, '500g');
+$tetra = new cibo('Prezzo ' . 4.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/272714/tetra-guppy-mini-flakes.jpg', 'Guppy Mini Flakes', 'Pesci', 19 . '/' . 06 . '/' . 2024, '500g');
+
+$voliera = new accessorio('Prezzo ' . 120.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/258384/voliera-wilma1.jpg', 'Voliera', 'Uccelli', 'legno e alluminio', '3m');
+$filtro = new accessorio('Prezzo ' . 40.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/272741/tetra-easycrystal-filterpack-250-300.jpg', 'Filtro acquario', 'Uccelli', 'cotone e plastica', '20cm');
+
+$topo = new gioco('Prezzo ' . 8.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/223852/trixie-gatto-gioco-active-mouse-peluche.jpg', 'Topolino peluche', 'Gatti', 'grigio, nero e rosa', true);
+$kong = new gioco('Prezzo ' . 9.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/256599/kong-classic1.jpg', 'Kong', 'Cani', 'rosso', false);
 
 ?>
 <!DOCTYPE html>
@@ -108,17 +173,29 @@ class gioco extends prodotto
                 <div class="d-flex">
                     <div class="col-4">
                         <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-title text-center">
+                                <h5><?php echo $royal->getNome() ?></h5>
+                            </div>
+                            <img src="<?php echo $royal->getImg() ?></p>" class="card-img-top">
                             <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="card-text text-success"><?php echo $royal->getPrezzo() ?></p>
+                                <p class="card-text "><?php echo 'Prodotto per : ' . $royal->getCategoria() ?></p>
+                                <p class="card-text "><?php echo 'Dal peso di : ' . $royal->getPeso() ?></p>
+                                <p class="card-text "><?php echo 'Scadenza : ' . $royal->getScadenza() ?></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-title text-center">
+                                <h5><?php echo $almoC->getNome() ?></h5>
+                            </div>
+                            <img src="<?php echo $almoC->getImg() ?>" class="card-img-top">
                             <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="card-text text-success"><?php echo $almoC->getPrezzo() ?></p>
+                                <p class="card-text "><?php echo 'Prodotto per : ' . $almoC->getCategoria() ?></p>
+                                <p class="card-text "><?php echo 'Dal peso di : ' . $almoC->getPeso() ?></p>
+                                <p class="card-text "><?php echo 'Scadenza : ' . $almoC->getScadenza() ?></p>
                             </div>
                         </div>
                     </div>
@@ -129,9 +206,15 @@ class gioco extends prodotto
                 <div class="d-flex">
                     <div class="col-12">
                         <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-title text-center">
+                                <h5><?php echo $almoG->getNome() ?></h5>
+                            </div>
+                            <img src="<?php echo $almoG->getImg() ?>" class="card-img-top">
                             <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="card-text text-success"><?php echo $almoG->getPrezzo() ?></p>
+                                <p class="card-text "><?php echo 'Prodotto per : ' . $almoG->getCategoria() ?></p>
+                                <p class="card-text "><?php echo 'Dal peso di : ' . $almoG->getPeso() ?></p>
+                                <p class="card-text "><?php echo 'Scadenza : ' . $almoG->getScadenza() ?></p>
                             </div>
                         </div>
                     </div>
@@ -142,9 +225,15 @@ class gioco extends prodotto
                 <div class="d-flex">
                     <div class="col-12">
                         <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-title text-center">
+                                <h5><?php echo $tetra->getNome() ?></h5>
+                            </div>
+                            <img src="<?php echo $tetra->getImg() ?>" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="card-text text-success"><?php echo $tetra->getPrezzo() ?></p>
+                                <p class="card-text "><?php echo 'Prodotto per : ' . $tetra->getCategoria() ?></p>
+                                <p class="card-text "><?php echo 'Dal peso di : ' . $tetra->getPeso() ?></p>
+                                <p class="card-text "><?php echo 'Scadenza : ' . $tetra->getScadenza() ?></p>
                             </div>
                         </div>
                     </div>
@@ -163,9 +252,15 @@ class gioco extends prodotto
                 <div class="d-flex">
                     <div class="col-4">
                         <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-title text-center">
+                                <h5><?php echo $kong->getNome() ?></h5>
+                            </div>
+                            <img src="<?php echo $kong->getImg() ?>" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="card-text text-success"><?php echo $kong->getPrezzo() ?></p>
+                                <p class="card-text "><?php echo 'Prodotto per : ' . $kong->getCategoria() ?></p>
+                                <p class="card-text "><?php echo 'Colori : ' . $kong->getColore() ?></p>
+                                <p class="card-text text-danger"><?php echo $kong->getRiciclato() ?></p>
                             </div>
                         </div>
                     </div>
@@ -176,9 +271,15 @@ class gioco extends prodotto
                 <div class="d-flex">
                     <div class="col-4">
                         <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-title text-center">
+                                <h5><?php echo $topo->getNome() ?></h5>
+                            </div>
+                            <img src="<?php echo $topo->getImg() ?>" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="card-text text-success"><?php echo $topo->getPrezzo() ?></p>
+                                <p class="card-text "><?php echo 'Prodotto per : ' . $topo->getCategoria() ?></p>
+                                <p class="card-text "><?php echo 'Colori : ' . $topo->getColore() ?></p>
+                                <p class="card-text text-success"><?php echo $topo->getRiciclato() ?></p>
                             </div>
                         </div>
                     </div>
@@ -196,9 +297,16 @@ class gioco extends prodotto
                 <div class="d-flex">
                     <div class="col-4">
                         <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-title text-center">
+                                <h5><?php echo $voliera->getNome() ?><h5>
+                            </div>
+                            <img src="<?php echo $voliera->getImg() ?>" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="card-text text-success"><?php echo $voliera->getPrezzo() ?></p>
+                                <p class="card-text "><?php echo 'Prodotto per : ' . $voliera->getCategoria() ?></p>
+                                <p class="card-text "><?php echo 'Larghezza : ' . $voliera->getLarghezza() ?></p>
+                                <p class="card-text "><?php echo 'Composto da : ' . $voliera->getMateriale() ?></p>
+
                             </div>
                         </div>
                     </div>
@@ -209,9 +317,15 @@ class gioco extends prodotto
                 <div class="d-flex">
                     <div class="col-4">
                         <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-title text-center">
+                                <h5><?php echo $filtro->getNome() ?></h5>
+                            </div>
+                            <img src="<?php echo $filtro->getImg() ?>" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <p class="card-text text-success"><?php echo $filtro->getPrezzo() ?></p>
+                                <p class="card-text "><?php echo 'Prodotto per : ' . $filtro->getCategoria() ?></p>
+                                <p class="card-text "><?php echo 'Larghezza : ' . $filtro->getLarghezza() ?></p>
+                                <p class="card-text "><?php echo 'Composto da : ' . $filtro->getMateriale() ?></p>
                             </div>
                         </div>
                     </div>
