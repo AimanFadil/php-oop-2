@@ -120,17 +120,38 @@ class gioco extends prodotto
     }
 }
 
+class categoria
+{
+    public $animale;
 
-$royal = new cibo('Prezzo ' . 12.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/284621/Mini-Adult.jpg?v=638182891693570000', 'RoyalCanin Mini', 'Cani', 23 . '/' . 03 . '/' . 2024, '10kg');
-$almoC = new cibo('Prezzo ' . 16.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg', 'Almo Natural', 'Cani', 21 . '/' . 04 . '/' . 2024, '12kg');
-$almoG = new cibo('Prezzo ' . 7.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg', 'Almo Natural', 'Gatti', 16 . '/' . 02 . '/' . 2024, '500g');
-$tetra = new cibo('Prezzo ' . 4.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/272714/tetra-guppy-mini-flakes.jpg', 'Guppy Mini Flakes', 'Pesci', 19 . '/' . 06 . '/' . 2024, '500g');
+    function __construct($animale)
+    {
+        $this->animale = $animale;
+    }
 
-$voliera = new accessorio('Prezzo ' . 120.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/258384/voliera-wilma1.jpg', 'Voliera', 'Uccelli', 'legno e alluminio', '3m');
-$filtro = new accessorio('Prezzo ' . 40.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/272741/tetra-easycrystal-filterpack-250-300.jpg', 'Filtro acquario', 'Uccelli', 'cotone e plastica', '20cm');
+    function getOneAnimale()
+    {
+        return $this->animale;
+    }
+}
 
-$topo = new gioco('Prezzo ' . 8.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/223852/trixie-gatto-gioco-active-mouse-peluche.jpg', 'Topolino peluche', 'Gatti', 'grigio, nero e rosa', true);
-$kong = new gioco('Prezzo ' . 9.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/256599/kong-classic1.jpg', 'Kong', 'Cani', 'rosso', false);
+$cani = new categoria('Cane');
+$gatti = new categoria('Gatto');
+$uccelli = new categoria('Uccelli');
+$pesci = new categoria('Pesci');
+
+
+
+$royal = new cibo('Prezzo ' . 12.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/284621/Mini-Adult.jpg?v=638182891693570000', 'RoyalCanin Mini', $cani->getOneAnimale(), 23 . '/' . 03 . '/' . 2024, '10kg');
+$almoC = new cibo('Prezzo ' . 16.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg', 'Almo Natural', $cani->getOneAnimale(), 21 . '/' . 04 . '/' . 2024, '12kg');
+$almoG = new cibo('Prezzo ' . 7.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg', 'Almo Natural', $gatti->getOneAnimale(), 16 . '/' . 02 . '/' . 2024, '500g');
+$tetra = new cibo('Prezzo ' . 4.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/272714/tetra-guppy-mini-flakes.jpg', 'Guppy Mini Flakes', $pesci->getOneAnimale(), 19 . '/' . 06 . '/' . 2024, '500g');
+
+$voliera = new accessorio('Prezzo ' . 120.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/258384/voliera-wilma1.jpg', 'Voliera', $uccelli->getOneAnimale(), 'legno e alluminio', '3m');
+$filtro = new accessorio('Prezzo ' . 40.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/272741/tetra-easycrystal-filterpack-250-300.jpg', 'Filtro acquario', $uccelli->getOneAnimale(), 'cotone e plastica', '20cm');
+
+$topo = new gioco('Prezzo ' . 8.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/223852/trixie-gatto-gioco-active-mouse-peluche.jpg', 'Topolino peluche', $gatti->getOneAnimale(), 'grigio, nero e rosa', true);
+$kong = new gioco('Prezzo ' . 9.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/256599/kong-classic1.jpg', 'Kong', $cani->getOneAnimale(), 'rosso', false);
 
 ?>
 <!DOCTYPE html>
