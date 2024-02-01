@@ -7,23 +7,23 @@ include __DIR__ . "/Gioco.php";
 include __DIR__ . "/Cibo.php";
 include __DIR__ . "/Categoria.php";
 
-$cani = new Categoria('Cane', 'https://cdn.icon-icons.com/icons2/2070/PNG/512/dog_icon_125586.png');
-$gatti = new Categoria('Gatto', 'https://thumbs.dreamstime.com/b/linea-di-gatto-icona-101104883.jpg');
-$uccelli = new Categoria('Uccelli', 'https://static.vecteezy.com/ti/vettori-gratis/p3/19975159-disegno-dell-icona-dell-uccello-gratuito-vettoriale.jpg');
-$pesci = new Categoria('Pesci', 'https://cdn.icon-icons.com/icons2/38/PNG/512/fish_animal_5829.png');
+$cani = new Categoria('Cane', 'fas fa-dog');
+$gatti = new Categoria('Gatto', 'fas fa-cat');
+$uccelli = new Categoria('Uccelli', 'fas fa-dove');
+$pesci = new Categoria('Pesci', 'fas fa-fish');
 
 
 
-$royal = new Cibo('Prezzo ' . 12.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/284621/Mini-Adult.jpg?v=638182891693570000', 'RoyalCanin Mini', $cani->getOneAnimale(), 23 . '/' . 03 . '/' . 2024, '10kg');
-$almoC = new Cibo('Prezzo ' . 16.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg', 'Almo Natural', $cani->getOneAnimale(), 21 . '/' . 04 . '/' . 2024, '12kg');
-$almoG = new Cibo('Prezzo ' . 7.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg', 'Almo Natural', $gatti->getOneAnimale(), 16 . '/' . 02 . '/' . 2024, '500g');
-$tetra = new Cibo('Prezzo ' . 4.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/272714/tetra-guppy-mini-flakes.jpg', 'Guppy Mini Flakes', $pesci->getOneAnimale(), 19 . '/' . 06 . '/' . 2024, '500g');
+$royal = new Cibo('Prezzo ' . 12.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/284621/Mini-Adult.jpg?v=638182891693570000', 'RoyalCanin Mini', $cani->getOneAnimale() . ' <i class="' . $cani->getOneAnimaleIcona() . '"></i>',  23 . '/' . 03 . '/' . 2024, '10kg');
+$almoC = new Cibo('Prezzo ' . 16.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/245173/almo-nature-holistic-cane-adult-medium-pollo-e-riso.jpg', 'Almo Natural', $cani->getOneAnimale() . ' <i class="' . $cani->getOneAnimaleIcona() . '"></i>', 21 . '/' . 04 . '/' . 2024, '12kg');
+$almoG = new Cibo('Prezzo ' . 7.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/245336/almo-daily-menu-cat-400-gr-vitello.jpg', 'Almo Natural', $gatti->getOneAnimale() . ' <i class="' . $gatti->getOneAnimaleIcona() . '"></i>', 16 . '/' . 02 . '/' . 2024, '500g');
+$tetra = new Cibo('Prezzo ' . 4.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/272714/tetra-guppy-mini-flakes.jpg', 'Guppy Mini Flakes', $pesci->getOneAnimale() . ' <i class="' . $pesci->getOneAnimaleIcona() . '"></i>', 19 . '/' . 06 . '/' . 2024, '500g');
 
-$voliera = new Accessorio('Prezzo ' . 120.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/258384/voliera-wilma1.jpg', 'Voliera', $uccelli->getOneAnimale(), 'legno e alluminio', '3m');
-$filtro = new Accessorio('Prezzo ' . 40.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/272741/tetra-easycrystal-filterpack-250-300.jpg', 'Filtro acquario', $uccelli->getOneAnimale(), 'cotone e plastica', '20cm');
+$voliera = new Accessorio('Prezzo ' . 120.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/258384/voliera-wilma1.jpg', 'Voliera', $uccelli->getOneAnimale() . ' <i class="' . $uccelli->getOneAnimaleIcona() . '"></i>', 'legno e alluminio', '3m');
+$filtro = new Accessorio('Prezzo ' . 40.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/272741/tetra-easycrystal-filterpack-250-300.jpg', 'Filtro acquario', $uccelli->getOneAnimale() . ' <i class="' . $uccelli->getOneAnimaleIcona() . '"></i>', 'cotone e plastica', '20cm');
 
-$topo = new Gioco('Prezzo ' . 8.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/223852/trixie-gatto-gioco-active-mouse-peluche.jpg', 'Topolino peluche', $gatti->getOneAnimale(), 'grigio, nero e rosa', true);
-$kong = new Gioco('Prezzo ' . 9.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/256599/kong-classic1.jpg', 'Kong', $cani->getOneAnimale(), 'rosso', false);
+$topo = new Gioco('Prezzo ' . 8.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/223852/trixie-gatto-gioco-active-mouse-peluche.jpg', 'Topolino peluche', $gatti->getOneAnimale() . ' <i class="' . $gatti->getOneAnimaleIcona() . '"></i>', 'grigio, nero e rosa', true);
+$kong = new Gioco('Prezzo ' . 9.90 . '$', 'https://arcaplanet.vtexassets.com/arquivos/ids/256599/kong-classic1.jpg', 'Kong', $cani->getOneAnimale() . ' <i class="' . $cani->getOneAnimaleIcona() . '"></i>', 'rosso', false);
 
 ?>
 <!DOCTYPE html>
@@ -34,6 +34,7 @@ $kong = new Gioco('Prezzo ' . 9.90 . '$', 'https://arcaplanet.vtexassets.com/arq
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
 

@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__ . "/Prodotto.php";
+
 class Categoria
 {
     public $animale;
